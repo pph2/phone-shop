@@ -19,10 +19,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Search, Grid, GridItem } from 'vant'
+import { Search, Grid, GridItem, Swipe, SwipeItem } from 'vant'
 Vue.use(Search);
 Vue.use(Grid);
 Vue.use(GridItem);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
 export default Vue.extend({
   name: 'home',
   data() {
