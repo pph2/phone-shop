@@ -4,13 +4,13 @@
       <van-search shape="round" v-model="value" placeholder="请输入搜索关键词"/>
       <van-grid :column-num="3">
         <van-grid-item>
-          <div>123</div>
+          <div>热门</div>
         </van-grid-item>
         <van-grid-item>
-          <div>123</div>
+          <div>实惠</div>
         </van-grid-item>
         <van-grid-item>
-          <div>123</div>
+          <div>最新</div>
         </van-grid-item>
       </van-grid>
     </div>

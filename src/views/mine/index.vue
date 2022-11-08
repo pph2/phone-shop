@@ -1,5 +1,10 @@
 <template>
-  <div></div>
+  <div class="mine">
+    <div class="mine-header">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

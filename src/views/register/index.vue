@@ -2,27 +2,41 @@
   <div class="login">
     <div class="content">
       <div class="login-title">
-        手机商城系统
+        注册
       </div>
       <div class="login-content">
-        <van-form @submit="onSubmit">
+        <van-form @submit="onRegister">
           <van-field
             v-model="username"
             name="name"
             label="用户名"
-            placeholder="用户名"
+            placeholder="请输入用户名"
           />
           <van-field
             v-model="password"
             type="password"
             name="password"
             label="密码"
-            placeholder="密码"
+            placeholder="请输入密码"
+          />
+          <van-field
+            v-model="confirmPassword"
+            type="password"
+            name="confirmPassword"
+            label="确认密码"
+            placeholder="请再次输入密码"
+          />
+          <van-field
+            v-model="telephone"
+            type="tel"
+            name="telephone"
+            label="手机号码"
+            placeholder="请输入手机号码"
           />
         </van-form>
         <div class="button">
-           <van-button round block type="info" @click="toRegister">注册</van-button>
-           <van-button round block type="info" @click="onSubmit">登录</van-button>
+            <van-button round block type="info" @click="onCancel">重置</van-button>
+           <van-button round block type="info" @click="onRegister">注册</van-button>
           </div>
       </div>
     </div>
@@ -41,17 +55,20 @@ export default Vue.extend({
     return {
       username: '',
       password: '',
+      confirmPassword: '',
+      telephone: '',
     };
   },
   methods: {
-    onSubmit(values: any) {
+    onRegister(values: any) {
       console.log('submit', values);
       this.$router.push('/home')
     },
-    toRegister() {
+    onCancel() {
       this.username = '';
       this.password = '';
-      this.$router.push('/register');
+      this.confirmPassword = '';
+      this.telephone = '';
     }
   },
 })

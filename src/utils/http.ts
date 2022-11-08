@@ -43,3 +43,5 @@ export const post = (url: string, data: any, timeout = 10000) => {
     data,
   })
 }
+
+export default { get, post };
