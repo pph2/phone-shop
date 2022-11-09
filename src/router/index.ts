@@ -41,9 +41,19 @@ const routes: Array<RouteConfig> = [
         path: '/mine',
         name: 'mine',
         component: () => import(/* webpackChunkName: "index" */ '../views/mine/index.vue')
-      }
-    ]
-  }
+      },
+    ],
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import(/* webpackChunkName: "search" */ '../views/search/index.vue')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import(/* webpackChunkName: "products" */ '../views/products/index.vue')
+  },
 ]
 
 const router = new VueRouter({
