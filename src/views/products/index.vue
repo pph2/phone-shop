@@ -32,6 +32,7 @@ Vue.use(GoodsActionButton);
 Vue.use(NavBar);
 Vue.use(Icon);
 export default Vue.extend({
+  name: 'products',
   data() {
     return {
       value: '',

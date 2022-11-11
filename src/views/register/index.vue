@@ -50,7 +50,7 @@ Vue.use(Form),
 Vue.use(Field),
 Vue.use(Button)
 export default Vue.extend({
-  name: 'login',
+  name: 'register',
   data() {
     return {
       username: '',

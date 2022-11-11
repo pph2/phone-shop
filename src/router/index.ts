@@ -54,6 +54,16 @@ const routes: Array<RouteConfig> = [
     name: 'products',
     component: () => import(/* webpackChunkName: "products" */ '../views/products/index.vue')
   },
+  {
+    path: '/address',
+    name: 'address',
+    component: () => import(/* webpackChunkName: "address" */ '../views/address/index.vue')
+  },
+  {
+    path: '/refund',
+    name: 'refund',
+    component: () => import(/* webpackChunkName: "refund" */ '../views/refund/index.vue')
+  },
 ]
 
 const router = new VueRouter({

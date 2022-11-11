@@ -14,6 +14,39 @@
         </van-grid-item>
       </van-grid>
     </div>
+    <div class="home-content">
+      <div class="home-content-header"></div>
+      <div class="home-content-body">
+        <div class="list">
+          <div class="pic"></div>
+          <div class="content">
+            <div class="desc"></div>
+            <div class="price"></div>
+          </div>
+        </div>
+        <div class="list">
+          <div class="pic"></div>
+          <div class="content">
+            <div class="desc"></div>
+            <div class="price"></div>
+          </div>
+        </div>
+        <div class="list">
+          <div class="pic"></div>
+          <div class="content">
+            <div class="desc"></div>
+            <div class="price"></div>
+          </div>
+        </div>
+        <div class="list">
+          <div class="pic"></div>
+          <div class="content">
+            <div class="desc"></div>
+            <div class="price"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,8 +70,33 @@ export default Vue.extend({
 
 <style lang="less" scoped>
 .home {
+  font-size: 14px;
+  color: #333;
   &-header {
     width: 100%;
+  }
+  &-content {
+    padding: 16px;
+    &-header {
+      background-color: #eee;
+    }
+    &-body {
+      display: flex;
+      justify-content: space-around;
+      .list {
+        width: 48%;
+        margin-right: 8px;
+        .content {
+          font-size: 12px;
+        }
+        .desc {
+          color: #666;
+        }
+        .price{
+          color: #999;
+        }
+      }
+    }
   }
 }
 </style>
