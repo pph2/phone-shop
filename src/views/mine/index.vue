@@ -37,18 +37,25 @@
       </div>
     </div>
     <div class="mine-body">
+      <can-cell-group>
+        <van-cell icon="card" title="我的钱包" value="0.00" />
+        <van-cell icon="map-marked" title="我的地址" />
+        <van-cell icon="star" title="我的收藏"></van-cell>
+      </can-cell-group>
     </div>
-    <van-button @click="logoutUser" block size="large" class="bg-blue" round>退出登录</van-button>
+      <van-button type="info" @click="logoutUser" block size="large" class="mine-foot" round>退出登录</van-button>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Button, Grid, GridItem, Icon } from 'vant';
+import { Button, Grid, GridItem, Icon, Cell, CellGroup } from 'vant';
 Vue.use(Button);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(Icon);
+Vue.use(Cell);
+Vue.use(CellGroup);
 export default Vue.extend({
   name: 'mine',
   methods: {
@@ -63,6 +70,8 @@ export default Vue.extend({
 
 <style lang="less" scoped>
 .mine {
+  position: relative;
+  height: 100vh;
   &-header {
     &-top {
       display: flex;
@@ -85,5 +94,17 @@ export default Vue.extend({
       }
     }
   }
+  &-body {
+    .van-cell {
+      font-size: 16px;
+    }
+  }
+  &-foot {
+      position: absolute;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 66px;
+    }
 }
 </style>

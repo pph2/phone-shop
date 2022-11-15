@@ -32,6 +32,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Form, Field, Button } from 'vant';
+// import { authLogin } from '@/api/login';
 Vue.use(Form),
 Vue.use(Field),
 Vue.use(Button)
@@ -46,6 +47,10 @@ export default Vue.extend({
   methods: {
     onSubmit(values: any) {
       console.log('submit', values);
+      // authLogin('longhai', '123456').then((res: any) => {
+      //   console.log(res);
+        
+      // });
       this.$router.push('/home')
     },
     toRegister() {
