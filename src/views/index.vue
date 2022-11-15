@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view/>
-    <van-tabbar v-model="active" placeholder fixed >
+    <van-tabbar placeholder fixed route >
       <van-tabbar-item name="home" icon="home-o" replace to='/home'>首页</van-tabbar-item>
       <van-tabbar-item name="about" icon="search" replace to='/about'>分类</van-tabbar-item>
       <van-tabbar-item name="cart" icon="shopping-cart-o" replace to='/cart'>购物车</van-tabbar-item>
@@ -20,9 +20,8 @@ export default Vue.extend({
   name: 'index',
   data() {
     return {
-      active: 'home'
     }
-  }
+  },
 })
 </script>
 <style scoped>

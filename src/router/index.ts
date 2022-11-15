@@ -19,7 +19,7 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "register" */ '../views/register/index.vue')
   },
   {
-    path: '/home',
+    path: '/index',
     component: () => import(/* webpackChunkName: "index" */ '../views/index.vue'),
     children: [
       {

@@ -47,5 +47,8 @@ export default Vue.extend({
 </script>
 
 <style lang="less" scoped>
-
+/deep/.van-submit-bar {
+  position: fixed;
+  bottom: 51px;
+}
 </style>
