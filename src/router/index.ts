@@ -50,7 +50,7 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "search" */ '../views/search/index.vue')
   },
   {
-    path: '/products',
+    path: '/products/:productId',
     name: 'products',
     component: () => import(/* webpackChunkName: "products" */ '../views/products/index.vue')
   },

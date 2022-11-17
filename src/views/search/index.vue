@@ -4,6 +4,7 @@
       v-model="value"
       shape="round"
       placeholder="请输入搜索内容"
+      @search="onSearch"
     >
       <template #left>
         <p @click="goback"><van-icon name="arrow-left" />返回</p>
@@ -44,6 +45,13 @@ export default Vue.extend({
       console.log('清空');
       
     },
+    onSearch() {
+      const productId = '32142';
+      this.$router.push({
+        name: 'products',
+        params: { productId }
+      });
+    }
   },
 })
 </script>

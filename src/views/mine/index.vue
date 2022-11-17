@@ -39,7 +39,7 @@
     <div class="mine-body">
       <can-cell-group>
         <van-cell icon="card" title="我的钱包" value="0.00" />
-        <van-cell icon="map-marked" title="我的地址" />
+        <van-cell icon="map-marked" @click="toAddress" title="我的地址" />
         <van-cell icon="star" title="我的收藏"></van-cell>
       </can-cell-group>
     </div>
@@ -63,6 +63,9 @@ export default Vue.extend({
       sessionStorage.clear();
       this.$router.replace({path: '/login'});
       location.reload();
+    },
+    toAddress() {
+      this.$router.push('/address')
     }
   }
 })
