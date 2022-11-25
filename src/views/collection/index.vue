@@ -79,13 +79,6 @@ export default Vue.extend({
       console.log(this.active);
       // const { goodsName: '', goodsId: '' } = this.active[0];
       const userId = sessionStorage.getItem('userId');
-      // deleteGoodsComments(goodsName, goodsId, userId).then ( () => {
-      //   Dialog.alert({
-      //     message: '删除成功',
-      //   }).then(() => {
-      //     this.isActive = false;
-      //   })
-      // })
     },
     closeDialog() {
       this.isActive = false;
