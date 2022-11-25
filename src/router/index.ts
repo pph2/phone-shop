@@ -64,6 +64,16 @@ const routes: Array<RouteConfig> = [
     name: 'refund',
     component: () => import(/* webpackChunkName: "refund" */ '../views/refund/index.vue')
   },
+  {
+    path: '/collection',
+    name: 'collection',
+    component: () => import(/* webpackChunkName: "collection" */ '../views/collection/index.vue')
+  },
+  {
+    path: '/comment',
+    name: 'comment',
+    component: () => import(/* webpackChunkName: "comment" */ '../views/comment/index.vue')
+  },
 ]
 
 const router = new VueRouter({

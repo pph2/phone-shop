@@ -5,6 +5,7 @@
       shape="round"
       placeholder="请输入搜索内容"
       @search="onSearch"
+      background="#4fc08d"
     >
       <template #left>
         <p @click="goback"><van-icon name="arrow-left" />返回</p>
@@ -16,10 +17,9 @@
         <p class="clear"><van-icon size="16" @click="clearHistroy" name="delete-o" />清除历史记录</p>
       </div>
       <div class="search-histroy-card">
-        <div class="list">123</div>
-        <div class="list">123</div>
-        <div class="list">123</div>
-        <div class="list">123</div>
+        <div v-for="(item, index) in searchList" :key="index" class="list">
+          {{item.name}}
+        </div>
       </div>
     </div>
   </div>
@@ -27,23 +27,50 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Search, Icon } from 'vant';
+import { Search, Icon, Dialog } from 'vant';
 Vue.use(Search);
-Vue.use(Icon)
+Vue.use(Icon);
+Vue.use(Dialog);
 export default Vue.extend({
   name: 'search',
   data() {
     return {
-      value: ''
+      value: '',
+      show: false,
+      searchList: [
+        {
+          name: '123',
+        },
+        {
+          name: '123',
+        },
+        {
+          name: '123',
+        },
+        {
+          name: '123',
+        },
+      ],
     }
   },
   methods: {
     goback() {
       this.$router.go(-1);
     },
+    /**
+     * 清空历史记录按钮
+     */
     clearHistroy() {
       console.log('清空');
-      
+      Dialog.alert({
+        message: '确定清除历史记录吗？',
+        showCancelButton: true,
+        cancelButtonText: '取消',
+      }).then(() => {
+        this.searchList = [];
+      }).catch(() => {
+        console.log(this.searchList);
+      })   
     },
     onSearch() {
       const productId = '32142';
@@ -58,15 +85,16 @@ export default Vue.extend({
 
 <style lang="less" scoped>
 .van-search {
-  padding: 10px 0;
+  padding: 0 16px 0 8px;
+  color: #fff;
   p {
-    margin-right: 8px;
+    margin-right: 14px;
   }
 }
 .search {
   color: #333;
-  padding: 16px;
   &-histroy {
+    padding: 16px;
     &-header {
       font-size: 16px;
       color: #999;

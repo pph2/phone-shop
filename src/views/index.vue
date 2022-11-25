@@ -20,10 +20,29 @@ export default Vue.extend({
   name: 'index',
   data() {
     return {
+      active: 0,
     }
   },
+  beforeRouteLeave(to, from, next) {
+    if(to.name === 'login') {
+      sessionStorage.clear();
+    }
+    if(from.name === 'login') {
+      console.log(sessionStorage.getItem('userId'));      
+    }
+    else {
+      const goodsInfo = JSON.stringify({});
+      sessionStorage.setItem('goodsInfo', goodsInfo);
+    }
+  }
 })
 </script>
-<style scoped>
-
+<style lang="less" scoped>
+.div {
+  padding: 0;
+  margin: 0;
+  .van-tabbar {
+    font-size: 12px;
+  }
+}
 </style>

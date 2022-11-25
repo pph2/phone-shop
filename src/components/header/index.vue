@@ -39,7 +39,7 @@ export default Vue.extend({
     goback() {
       this.$router.go(-1);
     }
-  }
+  },
 })
 </script>
 

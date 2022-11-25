@@ -8,6 +8,11 @@
 import Vue from 'vue'
 export default Vue.extend({
   name: 'refund',
+  data() {
+    return {
+      
+    }
+  }
 })
 </script>
 

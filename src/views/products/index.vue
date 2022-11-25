@@ -1,8 +1,14 @@
 <template>
   <div class="products">
-    <nav-bar
-      :name="'商品'"
-    />  
+    <van-nav-bar
+      title="商品" 
+      left-arrow 
+      left-text="返回"
+    >
+      <template #right>
+        <van-icon @click="collectPhone" :name="toggleCollect ? 'star' : 'star-o'" size="18" />
+      </template>
+    </van-nav-bar>  
     <!-- <div class="products-header">
       <van-nav-bar
         title="测试商品"
@@ -25,7 +31,7 @@
             <div class="desc">测试简述。。。</div>
             <div class="price">
               <div class="num">￥1000</div>
-              <div class="sale">月销 100</div>
+              <div class="sale">月销 1000</div>
             </div>
           </div>
         </van-cell>
@@ -62,7 +68,7 @@
       <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" color="#ee0a24" />
       <van-goods-action-icon icon="cart-o" text="购物车" />
-      <van-goods-action-icon icon="star" text="已收藏" />
+      <van-goods-action-icon :color="toggleCollect ? 'red' : ''" class="collect" @click="collectPhone" :icon="toggleCollect ? 'star' : 'star-o'" :text="toggleCollect ? '已收藏' : '收藏'" />
       <van-goods-action-button type="warning" text="加入购物车" />
       <van-goods-action-button type="danger" text="立即购买" />
     </van-goods-action>
@@ -91,6 +97,7 @@ export default Vue.extend({
     return {
       value: '',
       isDot: false,
+      toggleCollect: false
     }
   },
   methods: {
@@ -99,6 +106,9 @@ export default Vue.extend({
     },
     toggle() {
       this.isDot = !this.isDot
+    },
+    collectPhone() {
+      this.toggleCollect = !this.toggleCollect;
     }
   }
 })
@@ -106,8 +116,14 @@ export default Vue.extend({
 
 <style lang="less" scoped>
 .products {
+  .van-nav-bar {
+    padding: 2px 0;
+    /deep/.van-nav-bar__title {
+      font-size: 18px;
+    }
+  }
   &-body {
-    padding: 16px;
+    padding: 0 16px 16px 16px;
     font-size: 12px;
     color: #333;
     .my-swipe .van-swipe-item {
