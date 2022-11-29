@@ -60,8 +60,8 @@ export default Vue.extend({
     };
   },
   methods: {
-    onRegister(values: any) {
-      console.log('submit', values);
+    onRegister() {
+      // console.log('submit', values);
       this.$router.push('/home')
     },
     onCancel() {

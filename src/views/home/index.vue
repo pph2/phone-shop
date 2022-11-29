@@ -81,7 +81,7 @@ export default Vue.extend({
   },
   methods: {
     toSearch() {
-      this.$router.push('/search');
+      this.$router.push({name:'search'});
     }
   }
 })

@@ -52,11 +52,17 @@ const routes: Array<RouteConfig> = [
   {
     path: '/products/:productId',
     name: 'products',
+    meta: {
+      title: '商品详情',
+    },
     component: () => import(/* webpackChunkName: "products" */ '../views/products/index.vue')
   },
   {
     path: '/address',
     name: 'address',
+    meta: {
+      title: '我的地址',
+    },
     component: () => import(/* webpackChunkName: "address" */ '../views/address/index.vue')
   },
   {
@@ -67,6 +73,9 @@ const routes: Array<RouteConfig> = [
   {
     path: '/collection',
     name: 'collection',
+    meta: {
+      title: '我的收藏',
+    },
     component: () => import(/* webpackChunkName: "collection" */ '../views/collection/index.vue')
   },
   {

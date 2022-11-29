@@ -51,12 +51,12 @@ export default Vue.extend({
       //   console.log(res);
         
       // });
-      this.$router.push('/home')
+      this.$router.push({name: 'home'})
     },
     toRegister() {
       this.username = '';
       this.password = '';
-      this.$router.push('/register');
+      this.$router.push({name: 'search'});
     }
   },
 })

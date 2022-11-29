@@ -4,6 +4,7 @@
       title="商品" 
       left-arrow 
       left-text="返回"
+      @click-left="onClickLeft"
     >
       <template #right>
         <van-icon @click="collectPhone" :name="toggleCollect ? 'star' : 'star-o'" size="18" />
@@ -79,6 +80,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import NavBar from '@/components/header/index.vue';
+import { updateUserCollection, removeUserCollection } from '@/api/collection/index';
 import { GoodsAction, GoodsActionIcon, GoodsActionButton, Icon, Swipe, SwipeItem, Cell, CellGroup } from 'vant';
 Vue.use(GoodsAction);
 Vue.use(GoodsActionIcon);
@@ -107,8 +109,41 @@ export default Vue.extend({
     toggle() {
       this.isDot = !this.isDot
     },
+    /**
+     * 根据toggleCollect判断是否收藏
+     */
     collectPhone() {
+      const userId = '';
+      const goodsId = this.$route.params.productsId;
+      if(this.toggleCollect === false) {
+        this.addCollectPhone(userId, goodsId)
+      } else {
+        this.removeCollectPhone(userId, goodsId)
+      }
       this.toggleCollect = !this.toggleCollect;
+    },
+    addCollectPhone(userId: string, goodsId: string) {
+      // const userId = sessionStorage.getItem('userId');
+      updateUserCollection(userId, goodsId).then(() => {
+        this.toggleCollect = true;
+      })
+    },
+    removeCollectPhone(userId: string, goodsId: string) {
+      removeUserCollection(userId, goodsId).then(() => {
+        this.toggleCollect = false;
+      })
+    },
+    checkUserVerify() {
+      const userInfo = sessionStorage.getItem('userInfo');
+      if(userInfo) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    onClickLeft() {
+      sessionStorage.removeItem('goodsInfo');
+      this.$router.go(-1);
     }
   }
 })

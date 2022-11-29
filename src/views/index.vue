@@ -34,6 +34,7 @@ export default Vue.extend({
       const goodsInfo = JSON.stringify({});
       sessionStorage.setItem('goodsInfo', goodsInfo);
     }
+    next();
   }
 })
 </script>

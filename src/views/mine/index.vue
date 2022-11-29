@@ -62,7 +62,7 @@ export default Vue.extend({
     logoutUser() {
       sessionStorage.clear();
       this.$router.replace({path: '/login'});
-      location.reload();
+      // location.reload();
     },
     toAddress() {
       this.$router.push('/address')
