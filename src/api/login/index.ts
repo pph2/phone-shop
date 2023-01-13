@@ -1,11 +1,11 @@
 import { post } from "@/utils/http";
 
-export const authLogin = (username: string, password: string) => {
-  const url = '/login';
-  return post(url, {username, password});
+export const authLogin = (user_name: string, password: string) => {
+  const url = 'test/login';
+  return post(url, { user_name, password });
 }
 
-export const authRegister = (username: string, password: string, telephone: string) => {
-  const url = '/register';
-  return post(url, {username, password, telephone});
+export const authRegister = (user_name: string, password: string, phone: string) => {
+  const url = 'test/register';
+  return post(url, { user_name, password, phone });
 }

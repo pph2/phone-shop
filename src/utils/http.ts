@@ -16,9 +16,6 @@ axios.interceptors.response.use(
     if(!response.data) {
       return Promise.reject(response);
     }
-    if(response.headers.token) {
-      sessionStorage.setItem('token', response.headers.token)
-    }
     return response.data;
   }
 )
@@ -33,7 +30,7 @@ export const get = (url: string, params: any, headers?: any) => {
 }
 
 export const post = (url: string, data: any, timeout = 10000) => {
-  let backUrl = 'localhost:8000';
+  let backUrl = 'http://localhost:8080';
   return axios({
     method: 'post',
     headers: { 'Content-Type': 'application/json;charset=UTF-8' },

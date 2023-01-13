@@ -32,7 +32,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Form, Field, Button } from 'vant';
-// import { authLogin } from '@/api/login';
+import { authLogin } from '@/api/login';
 Vue.use(Form),
 Vue.use(Field),
 Vue.use(Button)
@@ -45,18 +45,29 @@ export default Vue.extend({
     };
   },
   methods: {
-    onSubmit(values: any) {
-      console.log('submit', values);
-      // authLogin('longhai', '123456').then((res: any) => {
-      //   console.log(res);
-        
-      // });
-      this.$router.push({name: 'home'})
+    onSubmit() {
+      authLogin(this.username, this.password).then((res: any) => {
+        console.log(res);
+        if(res.code === 0) {
+          const loginInfo = res.result.destoken;
+          const token = res.result.token;
+          sessionStorage.setItem('token', token);
+          sessionStorage.setItem('loginInfo', loginInfo);
+          setTimeout(() => {
+          this.$router.push({name: 'home'})
+      })
+        } else {
+          console.log(res);
+          return false;
+        }
+      }).catch(e => {
+        console.log(e);
+      });
     },
     toRegister() {
       this.username = '';
       this.password = '';
-      this.$router.push({name: 'search'});
+      this.$router.push({name: 'register'});
     }
   },
 })

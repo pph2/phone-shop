@@ -24,7 +24,10 @@
             type="password"
             name="confirmPassword"
             label="确认密码"
+            @input="checkPassword(confirmPassword)"
+            @blur="cancelErrorMessage"
             placeholder="请再次输入密码"
+            :error-message="errorMessage"
           />
           <van-field
             v-model="telephone"
@@ -45,10 +48,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Form, Field, Button } from 'vant';
+import { Form, Field, Button, Toast } from 'vant';
+import { authRegister } from '@/api/login';
 Vue.use(Form),
 Vue.use(Field),
-Vue.use(Button)
+Vue.use(Button),
+Vue.use(Toast)
 export default Vue.extend({
   name: 'register',
   data() {
@@ -57,12 +62,36 @@ export default Vue.extend({
       password: '',
       confirmPassword: '',
       telephone: '',
+      errorMessage: ''
     };
   },
   methods: {
+    checkPassword(value: string) {
+      if(this.password === value) {
+        this.errorMessage = ''
+      } else {
+        this.errorMessage = '密码不匹配'
+      }
+    },
+    cancelErrorMessage() {
+      if(!this.confirmPassword) {
+        this.errorMessage = '';
+      }
+    },
     onRegister() {
       // console.log('submit', values);
-      this.$router.push('/home')
+      if(!this.errorMessage) {
+        authRegister(this.username, this.password, this.telephone).then((res: any) => {
+          this.$toast('注册成功');
+        }).catch(e => {
+          console.log(e);
+          this.$toast(e.message);
+          return;
+        })
+        setTimeout(() => {
+            this.$router.push({name: 'login'})
+        }, 500);
+      }
     },
     onCancel() {
       this.username = '';

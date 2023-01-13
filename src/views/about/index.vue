@@ -30,11 +30,18 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" @click="toProducts">
           <div class="pic"></div>
           <div class="desc">
-            <div class="title"></div>
-            <div class="price"></div>
+            <div class="title">测试标题</div>
+            <div class="price">
+              <div class="left">
+                ￥<span>123</span>
+              </div>
+              <div class="right">
+                月售 <span>99</span>
+              </div>
+            </div>
           </div>
         </div>
         <!-- <div class="card">
@@ -72,8 +79,8 @@ export default Vue.extend({
     getPhoneList() {
       // const userId = sessionStorage.getItem('userId');
       const userId = '';
-      const type = '';
-      getPhonesListQuery(userId, type).then((res: any) => {
+      // const type = '';
+      getPhonesListQuery(userId).then((res: any) => {
         this.phoneList = res;
       })
     },
@@ -132,6 +139,7 @@ export default Vue.extend({
             align-self: center;
             color: #999;
             font-size: 12px;
+            margin-right: 4px;
           }
         }
       }

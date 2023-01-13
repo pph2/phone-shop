@@ -2,7 +2,6 @@ const path = require('path');
 
 const { defineConfig } = require('@vue/cli-service');
 const { resolve } = require('path');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -14,12 +13,12 @@ module.exports = defineConfig({
     },
     module: {
       rules: [
-        {
-          test: /\.vue$/,
-          loader: 'vue-loader',
-          exclude: /node_modules/,
-          include: resolve('src'),
-        },
+        // {
+        //   test: /\.vue$/,
+        //   loader: 'vue-loader',
+        //   exclude: /node_modules/,
+        //   include: resolve('src'),
+        // },
         {
           test: /\.t(s|sx)$/,
           use: [
@@ -40,7 +39,6 @@ module.exports = defineConfig({
               }
             }
           ]
-        
         }
       ]
     },

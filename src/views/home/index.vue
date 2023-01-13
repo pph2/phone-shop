@@ -61,6 +61,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { getPhonesListQuery } from '@/api/goods/index'
 import { Search, Grid, GridItem, Swipe, SwipeItem, Lazyload } from 'vant'
 Vue.use(Search);
 Vue.use(Grid);
@@ -83,6 +84,11 @@ export default Vue.extend({
     toSearch() {
       this.$router.push({name:'search'});
     }
+  },
+  created() {
+    getPhonesListQuery('1').then((res: any) => {
+      console.log(res);
+    });
   }
 })
 </script>
